@@ -1,0 +1,284 @@
+// Global Foundation Settings
+@import "settings";
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+// @import "foundation/foundation-global"; // *always required
+// @import "foundation/components/global"; // *always required
+// @import "foundation/components/grid";
+// @import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+// @import "foundation/components/type";
+// @import "foundation/components/buttons";
+// @import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "foundation/components/section";
+// @import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+// @import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+// @import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+// @import "foundation/components/tables";
+// @import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
+
+
+@import "compass/css3/border-radius";
+
+
+
+// sprites
+@import "utilities/_sprites";
+
+// sprite usage:
+//$sprites-homepage1x: sprite-map("sprites-homepage1x/*.png");
+//$sprites-homepage2x: sprite-map("sprites-homepage2x/*.png");
+//#home-page .area-1 .sprite-1 { @include sprite_css(gather-entry, $sprites-homepage1x, $sprites-homepage2x);}
+
+
+// loads a @2x image if on a retina device
+// usage: @include background-image-retina('../images/promo_site/hr-icon', 'png', 50px, 50px);
+@mixin background-image-retina($file, $type, $width, $height) {
+  background-image: url($file + '.' + $type);
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+    & {
+      background-image: url($file + '@2x.' + $type);
+      background-size: $width $height;
+      -webkit-background-size: $width $height;
+
+    }
+  }
+}
+
+
+
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.main-wrapper {
+    display: none;
+    background: #eeeeee;
+}
+
+#loading-page.main-wrapper {
+    display: block;
+    background: #dddddd;
+    color: #777777;
+}
+
+
+// menu at top of page
+#menu {  background: #777;  height: 40px; color: #fff; text-align: right;   overflow: hidden;}
+#menu ul {  list-style: none;  margin: 0; padding: 0;}
+#menu ul li {  float: left;  margin-left: 20px;}
+#menu ul li a {  font-size: emCalc(12px); text-transform: uppercase; color: #fff;  line-height: 40px;  text-decoration: none;}
+#menu ul li a:hover {  color: #ccc;}
+#menu ul li a.active {  color: #aaa;}
+
+
+// submenu on parrallax page
+.submenu-wrapper li a { cursor: pointer;}
+#menu .submenu-wrapper {    background: #aaa;   position: relative;}
+.submenu-wrapper.sticky {   position: fixed;    top: 0px;   left: 0px;  width: 100% !important;}
+.submenu-placeholder {  height: 0px; width:100%; display:block;}
+.submenu-placeholder.sticky  {  height: 45px; width:100%; }
+.top-bar {  margin: 0px !important;}
+.top-bar .name {    width: 0px;}
+.top-bar .padded-cta { padding: 0px 13px 0px; }
+.item-1 {   width: 100px;   height: 100px; background-color: #ff0; float: left; margin-right: 20px;}
+.item-1 .inner-item-1 { width: 0%;  height: 0%; background-color: #0f0; float: left; margin-right: 20px;}
+.item-2 {   width: 100px;   height: 100px; background-color: #ff0; float: left; margin-right: 20px;}
+.item-2 .inner-item-1 { visibility: hidden; width: 100%;    height: 100%; background-color: #0f0; float: left; margin-right: 20px;}
+
+.button-group.left { width: 50%; padding-left: 10px;}
+.button-group.right { width: 200px; text-align:right;}
+.button.active {background-color: #333;}
+
+
+// gallery page
+#gallery-items-target img { border: 0;}
+#gallery-items-target .columns {  margin-top: 20px;  margin-bottom: 20px;}
+.image-target-image-container { width: 100%;    height: 200px;}
+
+
+
+// help and video page
+#help-panel-1,
+#help-panel-2,
+#help-panel-3,
+#video-panel {  display: none;  background-color: #ffffff;  padding: 10px;  margin-bottom: 10px;    width: 100%;}
+
+
+// footer
+#credits {  margin: 30px auto;  color: #999;    text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;  text-align: center;}
+
+
+// overriding default values
+// main button
+.button {background-color:#777; border:0;}
+.button:hover {background-color:#333;}
+
+
+
+
+
+
+
+/* videojs */
+
+// overriding videojs player button
+.vjs-big-play-button {
+    width: 90px !important;
+    margin-left: -45px !important;
+    height: 90px !important;
+    margin-top: -45px !important;
+
+    border: solid 1px #222 !important;
+
+    background-color: #2c2c2c !important;
+    background-image: none !important;
+    background-image: none !important;
+    background-image: none !important;
+    background-image: none !important;
+    background-image: none !important;
+    background-image: none !important;
+    background-repeat: no-repeat !important;
+    filter: none !important;
+
+    -moz-box-shadow: 0px 0px 0px #888 !important;
+    -webkit-box-shadow: 0px 0px 0px #888 !important;
+    box-shadow: 0px 0px 0px #888 !important;
+
+    -webkit-border-radius: 4px 4px !important;
+    -moz-border-radius: 4px / 4px !important;
+    -khtml-border-radius: 4px / 4px !important;
+    border-radius: 4px / 4px !important;
+}
+.vjs-big-play-button:hover {
+    background-color: #111 !important;
+}
+
+
+/* testing bix-sizing polyfil on ie7. works on most panels
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(resources/css/boxsizing.htc);
+}
+*/
+
+
+// gist
+
+.gist-syntax {background-color:#000 !important;}
+.gist-syntax .line-numbers { display:none;}
+.gist-syntax .highlight { background-color: transparent !important;}
+.gist-syntax table {margin: 0px; border: 0px;}
+.gist-syntax .nc {color:#f33 !important;}
+.gist-syntax .k {color:#555 !important;}
+.gist-syntax .m {color:#f3f !important;}
+
+
+
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {color: black;
+    text-shadow: 0 1px white;   font-family: Consolas, Monaco, 'Andale Mono', monospace;    direction: ltr; text-align: left;   white-space: pre;   word-spacing: normal;       -moz-tab-size: 4;   -o-tab-size: 4; tab-size: 4;    -webkit-hyphens: none;  -moz-hyphens: none; -ms-hyphens: none;  hyphens: none; background-color: transparent;}
+
+@media print {  code[class*="language-"],   pre[class*="language-"] {       text-shadow: none;  }}
+
+/* Code blocks */
+pre[class*="language-"] {   padding: 1em;   margin: .5em 0; overflow: auto; }
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {   background: #f5f2f0;}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {  padding: .1em;  border-radius: .3em;}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {  color: slategray;}
+
+.token.punctuation {    color: #999;}
+
+.namespace {    opacity: .7;}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number { color: #905;}
+
+.token.selector,
+.token.attr-name,
+.token.string { color: #690;}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {  color: #a67f59; background: hsla(0,0%,100%,.5);}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {    color: #07a;}
+
+
+.token.regex,
+.token.important {  color: #e90;}
+
+.token.important {  font-weight: bold;}
+
+.token.entity { cursor: help;}
+
+
+/*
+      .inline-code { font-family: "Monaco", "Consolas", "Courier", "Courier New", monospace; font-size: 13px; color: #e5a648; }
+      .code-chunk { margin-bottom: 24px; background: #0b0503; padding: 15px 16px; border: solid 1px #231715; overflow-x: auto; width: auto; }
+      .code-chunk pre { margin: 0; padding: 0; font-family: "Monaco", "Consolas", "Courier", "Courier New", monospace; font-size: 12px; color: #b7b7b7; }
+      .code-chunk .comment { color: #796964; }
+      .code-chunk .element { color: #976355; }
+      .code-chunk .attr { color: #e5a648; }
+*/
+
+
+
